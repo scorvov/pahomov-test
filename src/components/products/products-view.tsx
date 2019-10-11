@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IDataState } from "../../store/models/IDataState";
 
 const Container = styled.div`
   max-width: 1024px;
@@ -31,7 +32,7 @@ const RowHead = styled.div`
 interface WidthProps {
   width?: string;
 }
-const RowHeadCell = styled.div<WidthProps>`
+const Cell = styled.div<WidthProps>`
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -45,21 +46,46 @@ const RowHeadCell = styled.div<WidthProps>`
   overflow: hidden; // Or flex might break
   list-style: none;
 `;
+const Image = styled.img`
+  width: 24px;
+  height: 24px;
+`;
+const RowBody = styled.div`
+  width: 100%;
+  display: flex;
+`;
 
-export const ProductsView: React.FC = () => {
+export const ProductsView: React.FC<IDataState> = ({ products }) => {
   return (
     <Container>
       <Header>Результаты расчета</Header>
       <Wrapper>
         <Table>
           <RowHead>
-            <RowHeadCell width={"44px"}></RowHeadCell>
-            <RowHeadCell width={"500px"}>Наименование</RowHeadCell>
-            <RowHeadCell width={"89px"}>Кол-во</RowHeadCell>
-            <RowHeadCell width={"133px"}>Цена за ед, Р </RowHeadCell>
-            <RowHeadCell width={"133px"}>Стоимость, Р</RowHeadCell>
-            <RowHeadCell width={"44px"}></RowHeadCell>
+            <Cell width={"44px"}></Cell>
+            <Cell width={"500px"}>Наименование</Cell>
+            <Cell width={"89px"}>Кол-во</Cell>
+            <Cell width={"133px"}>Цена за ед, Р </Cell>
+            <Cell width={"133px"}>Стоимость, Р</Cell>
+            <Cell width={"44px"}></Cell>
           </RowHead>
+          {products
+            ? products.map(({ name, number, unitPrice, cost }, index) => (
+                <RowBody key={name}>
+                  <Cell width={"44px"}>
+                    <Image
+                      src={require(`./../../assets/svg/image${index}.png`)}
+                      alt={"img"}
+                    />
+                  </Cell>
+                  <Cell width={"500px"}>{name}</Cell>
+                  <Cell width={"89px"}>{number} уп.</Cell>
+                  <Cell width={"133px"}>{unitPrice}</Cell>
+                  <Cell width={"133px"}>{cost}</Cell>
+                  <Cell width={"44px"}>btn</Cell>
+                </RowBody>
+              ))
+            : null}
         </Table>
       </Wrapper>
     </Container>
