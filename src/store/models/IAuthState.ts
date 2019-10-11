@@ -1,3 +1,3 @@
 export interface IAuthState {
-    isAuth: boolean;
+  isAuth: boolean;
 }

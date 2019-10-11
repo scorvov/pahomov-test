@@ -9,7 +9,6 @@ export const Input = ({ ...props }) => {
       {...props}
       variant="outlined"
       margin="normal"
-      // required
       fullWidth
     />
   );

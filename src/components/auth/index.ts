@@ -1,14 +1,14 @@
-import {connect} from "react-redux";
-import {AuthFormik} from "./with-formik-auth";
-import {sendAuth} from "../../store/actions/auth-actions";
-import {IAuthState} from "../../store/models/IAuthState";
-import {IMapState} from "../../store/models/IMapState";
+import { connect } from "react-redux";
+import { authRequest } from "../../store/actions/auth-actions";
+import { IAuthState } from "../../store/models/IAuthState";
+import { IMapState } from "../../store/models/IMapState";
+import { Auth } from "./auth";
 
-
-const mapStateToProps = ({authState}: IMapState): IAuthState => {
-    const {isAuth} = authState;
-    return {isAuth}
+const mapStateToProps = ({ authState }: IMapState): IAuthState => {
+  return authState;
 };
 
-export const Auth = connect(mapStateToProps,
-    {sendAuth})(AuthFormik);
+export default connect(
+  mapStateToProps,
+  { authRequest }
+)(Auth);
