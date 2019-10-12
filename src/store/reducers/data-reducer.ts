@@ -4,61 +4,61 @@ const dataState: IDataState = {
   products: [
     {
       name: "SHINGLAS многослойная черепица, Ранчо, Коричневый, 2 м2",
-      number: 78,
+      number: "78 уп.",
       unitPrice: 589,
       cost: 45471
     },
     {
       name: "Черепица конька/карниза  (уп. 12 п.м / 20 п.м)",
-      number: 3,
+      number: "3 уп.",
       unitPrice: 4988,
       cost: 13717
     },
     {
       name: "Планка карниза, 2 м",
-      number: 15,
+      number: "15 шт.",
       unitPrice: 595,
       cost: 8925
     },
     {
       name: "Планка ветровая, 2 м",
-      number: 10,
+      number: "10 шт",
       unitPrice: 780,
       cost: 7800
     },
     {
       name: "Ковер подкладочный, рулон 15 м2",
-      number: 11,
+      number: "11 шт",
       unitPrice: 3829,
       cost: 39439
     },
     {
       name: "Лист OSB, 2500×1250×9 мм",
-      number: 54,
+      number: "54 шт.",
       unitPrice: 715,
       cost: 38057
     },
     {
       name: "Аэратор коньковый AIRIDGE FELT",
-      number: 26,
+      number: "26 шт.",
       unitPrice: 350,
       cost: 9052
     },
     {
       name: "Вентилятор скатный Huopa KTV",
-      number: 3,
+      number: "3 уп.",
       unitPrice: 1050,
       cost: 3150
     },
     {
       name: "Мастика битумная, 3 л",
-      number: 4,
+      number: "4 шт.",
       unitPrice: 2380,
       cost: 7355
     },
     {
       name: "Гвозди кровельные ершеные (упаковка 5 кг)",
-      number: 4,
+      number: "4 уп.",
       unitPrice: 750,
       cost: 2318
     }

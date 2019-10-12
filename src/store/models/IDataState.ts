@@ -4,7 +4,7 @@ export interface IDataState {
 
 interface IProduct {
   name: string;
-  number: number;
+  number: string;
   unitPrice: number;
   cost: number;
 }

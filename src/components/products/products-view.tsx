@@ -4,6 +4,9 @@ import { IDataState } from "../../store/models/IDataState";
 import close from "./../../assets/svg/close.svg";
 
 const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   max-width: 1024px;
   height: 624px;
   margin: 50px auto;
@@ -11,7 +14,12 @@ const Container = styled.div`
   font-family: IBM Plex Sans, sans-serif;
 `;
 
+const Table = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+`;
 const Header = styled.p`
+  width: 100%;
   padding: 21px 0;
   margin-bottom: 30px;
   border-bottom: 1px solid #e6e6e6;
@@ -20,17 +28,10 @@ const Header = styled.p`
   line-height: 100%;
   color: #c6213c;
 `;
-const Table = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  padding: 0;
-  @media (max-width: 768px) {
-    align-items: center;
-  }
-`;
 const RowHead = styled.div`
   display: flex;
   background: #f3f3f3;
+  border-top: 1px solid #e6e6e6;
   @media (max-width: 768px) {
     display: none;
   }
@@ -38,6 +39,10 @@ const RowHead = styled.div`
 const RowBody = styled.div`
   display: flex;
   cursor: pointer;
+  border-top: 1px solid #e6e6e6;
+  &:last-child {
+    border-bottom: 1px solid #e6e6e6;
+  }
   &:hover {
     background-color: #fafafa;
   }
@@ -56,12 +61,15 @@ const Cell = styled.div<WidthProps>`
   justify-content: ${props => (props.start ? "start" : "center")};
   box-sizing: border-box;
   min-height: 40px;
-  border: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
   padding: 0 10px;
   font-size: 14px;
   line-height: 150%;
   overflow: hidden;
   list-style: none;
+  &:first-child {
+    border-left: 1px solid #e6e6e6;
+  }
   @media (min-width: 768px) {
     width: ${props => (props.width ? props.width : "100%")};
   }
@@ -117,8 +125,8 @@ const RowMob = styled.div<WidthProps>`
 export const ProductsView: React.FC<IDataState> = ({ products }) => {
   return (
     <Container>
-      <Header>Результаты расчета</Header>
       <Table>
+        <Header>Результаты расчета</Header>
         <RowHead>
           <CellImage width={"5%"} />
           <CellHeader width={"52%"} start>
@@ -144,15 +152,15 @@ export const ProductsView: React.FC<IDataState> = ({ products }) => {
                 </RowMob>
                 <RowMob width={"10%"}>
                   <CellHeaderMob width={"10%"}>Кол-во</CellHeaderMob>
-                  <Cell>{number} уп.</Cell>
+                  <Cell>{number}</Cell>
                 </RowMob>
                 <RowMob width={"14%"}>
                   <CellHeaderMob width={"14%"}>Цена за ед, ₽ </CellHeaderMob>
-                  <Cell>{unitPrice}</Cell>
+                  <Cell>{unitPrice.toFixed(2)}</Cell>
                 </RowMob>
                 <RowMob width={"14%"}>
                   <CellHeaderMob width={"14%"}>Стоимость, ₽</CellHeaderMob>
-                  <Cell>{cost}</Cell>
+                  <Cell>{cost.toFixed(2)}</Cell>
                 </RowMob>
                 <CellEnd width={"5%"}>
                   <img src={close} alt="" />
