@@ -8,6 +8,7 @@ const Container = styled.div`
   flex-flow: column nowrap;
   align-items: center;
   max-width: 1024px;
+  min-width: 360px;
   height: 624px;
   margin: 30px auto;
   padding: 34px;
@@ -135,7 +136,7 @@ export const ProductsView: React.FC<IDataState> = ({ products }) => {
   return (
     <Container>
       <Table>
-        <Header>Результаты расчета</Header>
+        <Header>Результаты расчёта</Header>
         <RowHead>
           <CellImage width={"5%"} />
           <CellHeader width={"52%"} start>
