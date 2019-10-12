@@ -1,7 +1,6 @@
 import React from "react";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Link from "@material-ui/core/Link";
-import Box from "@material-ui/core/Box";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { StylesProvider } from "@material-ui/styles";
@@ -9,28 +8,22 @@ import {
   Avatar,
   Button,
   Checkbox,
-  Container,
+  ContainerAuth as Container,
   Form,
-  Links,
-  Paper
+  ContainerLinks,
+  StyledLink,
+  Paper,
+  themeMaterialUI
 } from "../../styled-components";
 import { Copyright, Input } from "../ui";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
-import { blue, red } from "@material-ui/core/colors";
+import { MuiThemeProvider } from "@material-ui/core";
 import { FormikProps } from "formik";
 import { FormValues } from "../../types/form";
-
-const theme = createMuiTheme({
-  palette: {
-    primary: blue,
-    secondary: red
-  }
-});
 
 export const AuthView: React.FC<FormikProps<FormValues>> = props => {
   const { isSubmitting, handleSubmit } = props;
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={themeMaterialUI}>
       <StylesProvider injectFirst>
         <Container component="main" maxWidth="xs">
           <Paper>
@@ -67,19 +60,17 @@ export const AuthView: React.FC<FormikProps<FormValues>> = props => {
               >
                 Войти в аккаунт
               </Button>
-              <Links>
+              <ContainerLinks>
                 <Link href="#" variant="body2">
                   Забыли пароль
                 </Link>
-                <Link href="#" variant="body2">
+                <StyledLink href="#" variant="body2">
                   {"Еще нет аккаунта? Регистрация"}
-                </Link>
-              </Links>
+                </StyledLink>
+              </ContainerLinks>
             </Form>
           </Paper>
-          <Box mt={8}>
-            <Copyright />
-          </Box>
+          <Copyright />
         </Container>
       </StylesProvider>
     </MuiThemeProvider>

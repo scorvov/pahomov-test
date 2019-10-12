@@ -1,10 +1,53 @@
-import { StyledContainer as Container } from "./auth/container";
-import { StyledButton as Button } from "./auth/button";
-import { StyledPaper as Paper } from "./auth/paper";
-import { StyledAvatar as Avatar } from "./auth/avatar";
-import { StyledForm as Form } from "./auth/form";
-import { StyledTextField as TextField } from "./auth/input";
-import { StyledCheckbox as Checkbox } from "./auth/checkbox";
-import { StyledLinks as Links } from "./auth/links";
+import {
+  StyledContainer as ContainerAuth,
+  StyledButton as Button,
+  StyledPaper as Paper,
+  StyledAvatar as Avatar,
+  StyledForm as Form,
+  StyledTextField as TextField,
+  StyledCheckbox as Checkbox,
+  ContainerLinks,
+  StyledLink,
+  themeMaterialUI
+} from "./auth-components";
 
-export { Container, Button, Paper, Avatar, Form, TextField, Checkbox, Links };
+import {
+  ContainerProducts,
+  Table,
+  Header,
+  RowHead,
+  RowBody,
+  Cell,
+  CellHeader,
+  CellHeaderMob,
+  CellImage,
+  CellEnd,
+  Image,
+  RowMob
+} from "./products-components";
+export {
+  ContainerAuth,
+  Button,
+  Paper,
+  Avatar,
+  Form,
+  TextField,
+  Checkbox,
+  ContainerLinks,
+  StyledLink,
+  themeMaterialUI
+};
+export {
+  ContainerProducts,
+  Table,
+  Header,
+  RowHead,
+  RowBody,
+  Cell,
+  CellHeader,
+  CellHeaderMob,
+  CellImage,
+  CellEnd,
+  Image,
+  RowMob
+};
