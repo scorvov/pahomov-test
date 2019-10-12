@@ -64,6 +64,7 @@ const dataState: IDataState = {
     }
   ]
 };
+// альтернатива cost -  number*unitPrice несложные вычисления в UI
 
 export const dataReducer = (state = dataState, action: any) => {
   switch (action.type) {
