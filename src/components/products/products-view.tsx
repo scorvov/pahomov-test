@@ -9,17 +9,20 @@ const Container = styled.div`
   align-items: center;
   max-width: 1024px;
   height: 624px;
-  margin: 50px auto;
+  margin: 30px auto;
   padding: 34px;
   font-family: IBM Plex Sans, sans-serif;
 `;
 
 const Table = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
+  width: 100%;
+  @media (max-width: 640px) {
+    align-items: center;
+  }
 `;
 const Header = styled.p`
-  width: 100%;
   padding: 21px 0;
   margin-bottom: 30px;
   border-bottom: 1px solid #e6e6e6;
@@ -27,12 +30,15 @@ const Header = styled.p`
   font-weight: bold;
   line-height: 100%;
   color: #c6213c;
+  @media (max-width: 640px) {
+    width: 320px;
+  }
 `;
 const RowHead = styled.div`
   display: flex;
   background: #f3f3f3;
   border-top: 1px solid #e6e6e6;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     display: none;
   }
 `;
@@ -46,7 +52,8 @@ const RowBody = styled.div`
   &:hover {
     background-color: #fafafa;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
+    width: 320px;
     flex-direction: column;
     margin-bottom: 30px;
   }
@@ -70,10 +77,10 @@ const Cell = styled.div<WidthProps>`
   &:first-child {
     border-left: 1px solid #e6e6e6;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     width: ${props => (props.width ? props.width : "100%")};
   }
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     justify-content: start;
     width: 160px;
   }
@@ -85,14 +92,15 @@ const CellHeader = styled(Cell)<WidthProps>`
 `;
 const CellHeaderMob = styled(CellHeader)`
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     background: #f3f3f3;
     display: flex;
   }
 `;
 const CellImage = styled(Cell)`
   min-width: 30px;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
+    border-bottom: 1px solid #e6e6e6;
     justify-content: center;
     width: 320px;
     height: 100px;
@@ -100,24 +108,25 @@ const CellImage = styled(Cell)`
 `;
 const CellEnd = styled(Cell)`
   min-width: 30px;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     display: none;
   }
 `;
 const Image = styled.img`
   width: 24px;
   height: 24px;
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
    width: 80px;
    height: 80px;
 `;
 const RowMob = styled.div<WidthProps>`
   display: flex;
   flex-flow: row nowrap;
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     width: ${props => (props.width ? props.width : "100%")};
   }
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
+    border-bottom: 1px solid #e6e6e6;
     width: 320px;
   }
 `;
