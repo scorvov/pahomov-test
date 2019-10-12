@@ -16,7 +16,7 @@ import {
   themeMaterialUI
 } from "../../styled-components";
 import { Copyright, Input } from "../ui";
-import { MuiThemeProvider } from "@material-ui/core";
+import { MuiThemeProvider, Tooltip } from "@material-ui/core";
 import { FormikProps } from "formik";
 import { FormValues } from "../../types/form";
 
@@ -34,20 +34,24 @@ export const AuthView: React.FC<FormikProps<FormValues>> = props => {
               Вход в аккаунт
             </Typography>
             <Form onSubmit={handleSubmit}>
-              <Input
-                id="email"
-                label="Почта *"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              />
-              <Input
-                name="password"
-                label="Пароль *"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+              <Tooltip title={"admin@gmail.com"} placement="right">
+                <Input
+                  id="email"
+                  label="Почта *"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                />
+              </Tooltip>
+              <Tooltip title={"admin123"} placement="right">
+                <Input
+                  name="password"
+                  label="Пароль *"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                />
+              </Tooltip>
               <FormControlLabel
                 control={<Checkbox color="primary" />}
                 label="Запомнить меня"
